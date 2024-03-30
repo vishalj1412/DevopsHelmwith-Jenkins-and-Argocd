@@ -1,0 +1,35 @@
+global:
+  name: consul
+  datacenter: dev-app-cluster
+  metrics:
+    enabled: true
+    enableAgentMetrics: true
+    agentMetricsRetentionTime: "1m"
+  acls:
+    manageSystemACLs: false
+client:
+  enabled: true
+server:
+  replicas: 2
+ui:
+  metrics:
+   enabled: true
+   provider: "prometheus"
+   baseURL: http://prometheus-server.default.svc.cluster.local
+  enabled: true
+  service:
+    type: ClusterIP
+connectInject:
+  enabled: true
+  metrics:
+   defaultEnabled: true
+   defaultEnableMerging: true
+   defaultPrometheusScrapePath: "/metrics"
+   defaultPrometheusScrapePort: 20200
+   sidecar-proxy-cpu-limit: "50m"
+   sidecar-proxy-cpu-request: "50m"
+   sidecar-proxy-memory-limit: "150Mi"
+   sidecar-proxy-memory-request: "150Mi" 
+controller:
+  enabled: true
+

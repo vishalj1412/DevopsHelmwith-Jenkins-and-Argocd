@@ -1,0 +1,40 @@
+global:
+  name: consul
+  datacenter: dev-warehouse-cluster
+  metrics:
+    enabled: true
+    enableAgentMetrics: true
+    agentMetricsRetentionTime: "1m"
+  acls:
+    manageSystemACLs: false
+client:
+  enabled: true
+# apiGateway:
+#  enabled: true
+#  # Image to use for the api-gateway-controller pods and gateway instances
+#  image: "hashicorp/consul-api-gateway:0.5.1"
+#  # Configuration settings for the GatewayClass
+#  managedGatewayClass:
+#    # Defines the type of service created for gateways (e.g. LoadBalancer, ClusterIP, NodePort)
+#    # LoadBalancer is primarily used for cloud deployments.
+#    serviceType: ClusterIP
+server:
+  replicas: 1
+ui:
+  metrics:
+   enabled: true
+   provider: "prometheus"
+   baseURL: http://prometheus-server.default.svc.cluster.local
+  enabled: true
+  service:
+    type: ClusterIP
+connectInject:
+  enabled: true
+  metrics:
+   defaultEnabled: true
+   defaultEnableMerging: true
+   defaultPrometheusScrapePath: "/metrics"
+   defaultPrometheusScrapePort: 20200
+controller:
+  enabled: true
+

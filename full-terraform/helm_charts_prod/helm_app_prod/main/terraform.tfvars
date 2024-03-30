@@ -1,0 +1,6 @@
+cluster_name = "prod-app-cluster"
+db_database = "prodappkongdb"
+db_host = "prodkongdb.cvbx5zpkxenn.ap-south-1.rds.amazonaws.com"
+db_password = "mypass"
+db_port = "5432"
+db_user = "kongapp"

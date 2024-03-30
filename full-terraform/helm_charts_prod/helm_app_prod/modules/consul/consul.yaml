@@ -1,0 +1,34 @@
+global:
+  name: consul
+  datacenter: dev-app-cluster
+  acls:
+   manageSystemACLs: false
+
+server:
+  replicas: 1
+ 
+client:
+  enabled: true
+ 
+connectInject:
+  enabled: true
+  transparentProxy:
+    defaultEnabled: true
+  
+controller:
+  enabled: true
+
+ui:
+  enabled: true
+  service:
+    type: ClusterIP
+
+apiGateway:
+  enabled: true
+  # Image to use for the api-gateway-controller pods and gateway instances
+  image: "hashicorp/consul-api-gateway:0.5.1"
+  # Configuration settings for the GatewayClass
+  managedGatewayClass:
+    # Defines the type of service created for gateways (e.g. LoadBalancer, ClusterIP, NodePort)
+    # NodePort is primarily used for local deployments.
+    serviceType: ClusterIP

@@ -1,0 +1,6 @@
+cluster_name = "prod-warehouse-cluster"
+db_database = "prodkongdb"
+db_host = "prodkongdb.cvbx5zpkxenn.ap-south-1.rds.amazonaws.com"
+db_password = "]6@D!rq2"
+db_port = "5432"
+db_user = "kong"
